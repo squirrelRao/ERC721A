@@ -3,14 +3,14 @@
 
 pragma solidity ^0.8.4;
 
-import https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/IERC721.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/IERC721Receiver.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/extensions/IERC721Metadata.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/extensions/IERC721Enumerable.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/utils/Address.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/utils/Context.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/utils/Strings.sol';
-import https://github.com/squirrelRao/openzeppelin-contracts/utils/introspection/ERC165.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/tree/master/contracts/token/ERC721/IERC721.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/IERC721Receiver.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/extensions/IERC721Metadata.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/token/ERC721/extensions/IERC721Enumerable.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/utils/Address.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/utils/Context.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/utils/Strings.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/utils/introspection/ERC165.sol';
 
 error ApprovalCallerNotOwnerNorApproved();
 error ApprovalQueryForNonexistentToken();
