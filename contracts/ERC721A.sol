@@ -326,6 +326,17 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata,ERC721URIStorage {
     }
 
     /**
+     * @dev Sets `_tokenURI` as the tokenURI of `tokenId`.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function _safeSetTokenURI(uint256 tokenId, string memory _tokenURI) internal {
+        _setTokenURI(uint256 tokenId, string memory _tokenURI);
+    }
+
+    /**
      * @dev Safely mints `quantity` tokens and transfers them to `to`.
      *
      * Requirements:
