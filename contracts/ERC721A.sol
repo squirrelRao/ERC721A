@@ -11,7 +11,7 @@ import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contra
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/Context.sol';
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/Strings.sol';
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/introspection/ERC165.sol';
-import 'import 'https://github.com/squirrelRao/openzeppelin-contracts/tree/master/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/tree/master/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol';
 
 
 error ApprovalCallerNotOwnerNorApproved();
