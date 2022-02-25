@@ -11,7 +11,7 @@ import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contra
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/Context.sol';
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/Strings.sol';
 import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/utils/introspection/ERC165.sol';
-import 'https://github.com/squirrelRao/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
+import 'https://github.com/squirrelRao/openzeppelin-contracts/tree/master/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol';
 
 error ApprovalCallerNotOwnerNorApproved();
 error ApprovalQueryForNonexistentToken();
@@ -42,26 +42,9 @@ error URIQueryForNonexistentToken();
  *
  * Assumes that the maximum token id cannot exceed 2**256 - 1 (max value of uint256).
  */
-contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
+contract ERC721A is Context, ERC165, IERC721, IERC721Metadata,ERC721PresetMinterPauserAutoId {
     using Address for address;
     using Strings for uint256;
-
-
-    // Optional mapping for token URIs
-    mapping(uint256 => string) private _tokenURIs;
-
-    /**
-     * @dev Sets `_tokenURI` as the tokenURI of `tokenId`.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must exist.
-     */
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
-        require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
-        _tokenURIs[tokenId] = _tokenURI;
-    }
-
 
     // Compiler will pack this into a single 256bit word.
     struct TokenOwnership {
@@ -340,17 +323,6 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
 
     function _safeMint(address to, uint256 quantity) internal {
         _safeMint(to, quantity, '');
-    }
-
-    /**
-     * @dev Sets `_tokenURI` as the tokenURI of `tokenId`.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must exist.
-     */
-    function _safeSetTokenURI(uint256 tokenId, string memory _tokenURI) internal {
-        _setTokenURI(tokenId, _tokenURI);
     }
 
     /**
