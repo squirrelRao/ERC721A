@@ -42,9 +42,26 @@ error URIQueryForNonexistentToken();
  *
  * Assumes that the maximum token id cannot exceed 2**256 - 1 (max value of uint256).
  */
-contract ERC721A is Context, ERC165, IERC721, IERC721Metadata,ERC721URIStorage {
+contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
     using Address for address;
     using Strings for uint256;
+
+
+    // Optional mapping for token URIs
+    mapping(uint256 => string) private _tokenURIs;
+
+    /**
+     * @dev Sets `_tokenURI` as the tokenURI of `tokenId`.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     */
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+        require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
+        _tokenURIs[tokenId] = _tokenURI;
+    }
+
 
     // Compiler will pack this into a single 256bit word.
     struct TokenOwnership {
@@ -333,7 +350,7 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata,ERC721URIStorage {
      * - `tokenId` must exist.
      */
     function _safeSetTokenURI(uint256 tokenId, string memory _tokenURI) internal {
-        _setTokenURI(uint256 tokenId, string memory _tokenURI);
+        _setTokenURI(tokenId, _tokenURI);
     }
 
     /**
